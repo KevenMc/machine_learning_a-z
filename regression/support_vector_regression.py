@@ -7,10 +7,10 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVR
 
 # Name data source
-data_source = 'Position_Salaries.csv'
+DATA_SOURCE = 'Position_Salaries.csv'
 
 # Load dataset from csv
-dataset = pd.read_csv(data_source)
+dataset = pd.read_csv(DATA_SOURCE)
 X = dataset.iloc[:, 1:-1].values
 y = dataset.iloc[:, -1].values
 y = y.reshape(len(y), 1)

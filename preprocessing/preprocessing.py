@@ -9,10 +9,10 @@ from sklearn.preprocessing import OneHotEncoder, LabelEncoder, StandardScaler
 from sklearn.model_selection import train_test_split
 
 # Name data source
-data_source = 'Data.csv'
+DATA_SOURCE = 'Data.csv'
 
 # Load dataset from csv
-dataset = pd.read_csv(data_source)
+dataset = pd.read_csv(DATA_SOURCE)
 X = dataset.iloc[:, :-1].values
 y = dataset.iloc[:, -1].values
 

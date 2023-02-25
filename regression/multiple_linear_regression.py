@@ -9,10 +9,10 @@ from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
 
 # Name data source
-data_source = '50_Startups.csv'
+DATA_SOURCE = '50_Startups.csv'
 
 # Load dataset from csv
-dataset = pd.read_csv(data_source)
+dataset = pd.read_csv(DATA_SOURCE)
 X = dataset.iloc[:, :-1].values
 y = dataset.iloc[:, -1].values
 
