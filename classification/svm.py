@@ -1,13 +1,13 @@
-"""K nearest neighbours model"""
+"""Support Vector Machine classifier"""
 
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from matplotlib.colors import ListedColormap
-from sklearn.model_selection import train_test_split
-from sklearn.neighbors import KNeighborsClassifier
 from sklearn.preprocessing import StandardScaler
+from sklearn.svm import SVC
+from sklearn.model_selection import train_test_split
 from sklearn.metrics import f1_score, confusion_matrix, accuracy_score
+
 
 # Name data source
 DATA_SOURCE = 'Social_Network_Ads.csv'
@@ -26,8 +26,8 @@ sc = StandardScaler()
 X_train = sc.fit_transform(X_train)
 X_test = sc.transform(X_test)
 
-# Train simple logistic regression model
-classifier = KNeighborsClassifier()
+# Train SVR model on data
+classifier = SVC(kernel="linear", random_state=0)
 classifier.fit(X_train, y_train)
 
 # Predict test set
