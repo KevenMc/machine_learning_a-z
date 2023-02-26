@@ -1,8 +1,9 @@
-"""Support Vector Machine classifier"""
+"""Naive Bayes classifier"""
 
+import numpy as np
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
-from sklearn.svm import SVC
+from sklearn.naive_bayes import GaussianNB
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import f1_score, confusion_matrix, accuracy_score
 
@@ -25,7 +26,7 @@ X_train = sc.fit_transform(X_train)
 X_test = sc.transform(X_test)
 
 # Train SVR model on data
-classifier = SVC(kernel="rbf", random_state=0)
+classifier = GaussianNB()
 classifier.fit(X_train, y_train)
 
 # Predict test set
@@ -42,4 +43,3 @@ a = accuracy_score(y_pred.reshape(len(y_pred), 1),
 print(f"Accuracy (fscore): {f}")
 print(f"Accuracy (accuracy score): {a}")
 print(f"Confusion matrix:\n {m}")
-
