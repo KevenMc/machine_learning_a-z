@@ -8,12 +8,12 @@ from sklearn.metrics import f1_score, confusion_matrix, accuracy_score
 
 
 # Name data source
-DATA_SOURCE = 'Social_Network_Ads.csv'
+DATA_SOURCE = 'Data.csv'
 
 # Load dataset from csv
 dataset = pd.read_csv(DATA_SOURCE)
 X = dataset.iloc[:, :-1].values
-y = dataset.iloc[:, -1].values
+y = dataset.iloc[:, -1].values /2 -1
 
 # Split data into training and testing
 X_train, X_test, y_train, y_test = train_test_split(

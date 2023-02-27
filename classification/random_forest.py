@@ -1,20 +1,19 @@
-"""Support Vector Machine classifier"""
+"""Random forest of decision trees"""
 
+# Name data source
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
-from sklearn.svm import SVC
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import f1_score, confusion_matrix, accuracy_score
 
-# Name data source
-DATA_SOURCE = 'Data.csv'
+DATA_SOURCE = 'Social_Network_Ads.csv'
 
 # Load dataset from csv
 dataset = pd.read_csv(DATA_SOURCE)
 X = dataset.iloc[:, :-1].values
-y = dataset.iloc[:, -1].values /2 -1
+y = dataset.iloc[:, -1].values
 
 # Split data into training and testing
 X_train, X_test, y_train, y_test = train_test_split(
@@ -25,8 +24,11 @@ sc = StandardScaler()
 X_train = sc.fit_transform(X_train)
 X_test = sc.transform(X_test)
 
-# Train SVR model on data
-classifier = SVC(kernel="linear", random_state=0)
+# Train Random Forest model on data
+classifier = RandomForestClassifier(
+    n_estimators=5,
+    criterion="entropy",
+    random_state=0)
 classifier.fit(X_train, y_train)
 
 # Predict test set
