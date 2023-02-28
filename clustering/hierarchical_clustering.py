@@ -24,7 +24,6 @@ plt.show()
 
 # Visualise kclusters
 hc = AgglomerativeClustering(n_clusters=5, affinity="euclidean", linkage="ward")
-
 y_hc = hc.fit_predict(X)
 
 p_size = 25
