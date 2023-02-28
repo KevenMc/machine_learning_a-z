@@ -12,7 +12,7 @@ dataset = pd.read_csv(DATA_SOURCE)
 
 
 # Implement Thompson Sampling
-N = 500
+N = 1000
 D = 10
 ads_selected = []
 number_of_rewards_1 = [0] * 10
