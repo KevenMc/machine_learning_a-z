@@ -56,7 +56,7 @@ plt.scatter(X[y_means == 4, 0], X[y_means == 4, 1],
 plt.scatter(kmeans.cluster_centers_[:, 0], kmeans.cluster_centers_[:, 1],
             s=c_size, c="black", label="Centroids")
 plt.title("Clusters")
-plt.xlabel("Income?")
+plt.xlabel("Income")
 plt.ylabel("Spend score")
 plt.legend()
 plt.show()
