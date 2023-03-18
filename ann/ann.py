@@ -39,8 +39,6 @@ X_train = sc.fit_transform(X_train)
 X_test = sc.transform(X_test)
 
 
-
-
 # Define the model architecture
 model = tf.keras.Sequential([
     tf.keras.layers.Dense(6, activation='relu', input_shape=(12,)),
