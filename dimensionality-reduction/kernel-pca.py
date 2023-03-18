@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import confusion_matrix
-from sklearn.decomposition import PCA
+from sklearn.decomposition import KernelPCA
 from matplotlib.colors import ListedColormap
 
 
@@ -27,7 +27,7 @@ X_train = sc.fit_transform(X_train)
 X_test = sc.transform(X_test)
 
 #Applying PCA
-pca = PCA(n_components=2)
+pca = KernelPCA(n_components=2, kernel="rbf")
 X_train = pca.fit_transform(X_train)
 X_test = pca.transform(X_test)
 
@@ -41,13 +41,7 @@ y_pred = classifier.predict(X_test)
 
 # Confusion matrix and fscore
 m = confusion_matrix(y_test,y_pred)
-# f = f1_score(y_pred.reshape(len(y_pred), 1),
-#              y_test.reshape(len(y_test), 1))
-# a = accuracy_score(y_pred.reshape(len(y_pred), 1),
-#                    y_test.reshape(len(y_test), 1))
 
-# print(f"Accuracy (fscore): {f}")
-# print(f"Accuracy (accuracy score): {a}")
 print(f"Confusion matrix:\n {m}")
 
 def show_graph(X_set: np.ndarray, y_set: np.ndarray, title: str) -> None:
